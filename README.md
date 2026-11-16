@@ -28,7 +28,7 @@ cp apps/china-store/.env.example apps/china-store/.env
 
 set -a; . apps/china-store/.env; set +a
 bun run --filter china-store db:migrate
-bun dev
+bun run dev
 ```
 
 See [`apps/china-store/README.md`](apps/china-store/README.md) for the full
@@ -38,12 +38,29 @@ feature list, environment variables, and deployment notes.
 
 | Command | Description |
 | --- | --- |
-| `bun dev` | Run the storefront with `tsx watch` |
-| `bun build` | Bundle with `tsup` |
-| `bun test` | Vitest |
-| `bun typecheck` | `tsc --noEmit` |
-| `bun db:migrate` | Apply SQL migrations |
-| `bun deploy` | Deploy to Tencent CloudBase CloudRun |
+| `bun run dev` | Run the storefront with `tsx watch` |
+| `bun run preview` | In-memory preview: no database or providers |
+| `bun run build` | Bundle with `tsup` |
+| `bun run test` | Vitest |
+| `bun run typecheck` | `tsc --noEmit` |
+| `bun run db:migrate` | Apply SQL migrations |
+| `bun run deploy` | Deploy to Tencent CloudBase CloudRun |
+
+Use `bun run <script>`: `bun build` and `bun test` are Bun built-ins, not
+these scripts.
+
+## Preview
+
+See the storefront without a database or any provider credentials:
+
+```bash
+bun run preview
+# open http://localhost:3000
+```
+
+It runs the real app on in-memory adapters. Checkout redirects straight to the
+receipt page, and delivery emails are printed to the console. The database,
+Alipay, COS and SES are never contacted.
 
 ## Deploy
 
@@ -57,7 +74,7 @@ docker run -p 3000:3000 --env-file apps/china-store/.env china-store
 Tencent CloudBase CloudRun:
 
 ```bash
-bun deploy
+bun run deploy
 ```
 
 ## License

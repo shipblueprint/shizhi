@@ -36,6 +36,15 @@ bun run --filter china-store test
 bun run --filter china-store typecheck
 ```
 
+Preview the storefront with in-memory adapters (no PostgreSQL, Alipay, COS or
+SES). Checkout redirects to the receipt page and delivery emails print to the
+console:
+
+```bash
+bun run --filter china-store preview
+# open http://localhost:3000
+```
+
 ## Database
 
 Apply `migrations/0001_init.sql` before the first deployment. The schema keeps

@@ -6,6 +6,7 @@
   "description": "China-hosted Example Store storefront: Alipay, CNY prices, private delivery.",
   "scripts": {
     "dev": "tsx watch src/index.ts",
+    "preview": "tsx src/preview.ts",
     "start": "node dist/index.js",
     "build": "tsup",
     "typecheck": "tsc --noEmit",
