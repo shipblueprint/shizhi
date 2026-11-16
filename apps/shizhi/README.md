@@ -1,4 +1,4 @@
-# China storefront
+# Shizhi storefront
 
 Separate mainland-China storefront for CNY offers. It reads the shared catalog
 from `@repo/catalog` and does not import Cloudflare Worker code.
@@ -22,18 +22,18 @@ from `@repo/catalog` and does not import Cloudflare Worker code.
 ## Local development
 
 ```bash
-cp apps/china-store/.env.example apps/china-store/.env
+cp apps/shizhi/.env.example apps/shizhi/.env
 # fill in PostgreSQL, Alipay, COS and SES values
-set -a; . apps/china-store/.env; set +a
-bun run --filter china-store db:migrate
-bun run --filter china-store dev
+set -a; . apps/shizhi/.env; set +a
+bun run --filter shizhi db:migrate
+bun run --filter shizhi dev
 ```
 
 Run the tests without live providers:
 
 ```bash
-bun run --filter china-store test
-bun run --filter china-store typecheck
+bun run --filter shizhi test
+bun run --filter shizhi typecheck
 ```
 
 Preview the storefront with in-memory adapters (no PostgreSQL, Alipay, COS or
@@ -41,7 +41,7 @@ SES). Checkout redirects to the receipt page and delivery emails print to the
 console:
 
 ```bash
-bun run --filter china-store preview
+bun run --filter shizhi preview
 # open http://localhost:3000
 ```
 
@@ -73,11 +73,10 @@ container runtime.
 8. Build and deploy:
 
 ```bash
-bun run --filter china-store build
-docker build -f apps/china-store/Dockerfile -t china-store .
+bun run --filter shizhi build
+docker build -f apps/shizhi/Dockerfile -t shizhi .
 ```
 
-The ADR for this stack is `docs/adr/0001-china-storefront-tencent-native.md`.
 
 ## Alipay sandbox checklist
 
@@ -85,7 +84,7 @@ Run this manually before pointing the store at production credentials.
 
 1. Set `APP_URL` to the sandbox host, fill Alipay sandbox app id, seller id,
    keys and `ALIPAY_GATEWAY_URL`.
-2. Run `bun run --filter china-store db:migrate` and start the app.
+2. Run `bun run --filter shizhi db:migrate` and start the app.
 3. Open `/store`, choose `book-guide-ebook-cny`, and submit a valid email.
 4. Pay in the Alipay sandbox. Confirm the return to `/thanks?order=...` shows
    the pending or paid receipt.

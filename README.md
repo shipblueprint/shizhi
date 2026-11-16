@@ -1,8 +1,8 @@
-# China Store
+# Shizhi
 
 [中文](README.zh.md) | English
 
-Mainland-China storefront for Example Store digital products. Alipay and
+Mainland-China storefront for Shizhi digital products. Alipay and
 optional WeChat Pay in CNY, private Tencent COS delivery, Tencent Cloud SES
 email. Hono server-rendered HTML on PostgreSQL, deployed to Tencent CloudBase
 CloudRun.
@@ -11,7 +11,7 @@ This repository is a trimmed extraction of the original monorepo. It contains
 only what the China storefront needs:
 
 ```
-apps/china-store/    Hono app, payments, storage, migrations, tests
+apps/shizhi/    Hono app, payments, storage, migrations, tests
 packages/catalog/    Framework-neutral product catalog shared by the storefronts
 ```
 
@@ -25,15 +25,15 @@ packages/catalog/    Framework-neutral product catalog shared by the storefronts
 
 ```bash
 bun install
-cp apps/china-store/.env.example apps/china-store/.env
+cp apps/shizhi/.env.example apps/shizhi/.env
 # fill in PostgreSQL, Alipay, COS and SES values
 
-set -a; . apps/china-store/.env; set +a
-bun run --filter china-store db:migrate
+set -a; . apps/shizhi/.env; set +a
+bun run --filter shizhi db:migrate
 bun run dev
 ```
 
-See [`apps/china-store/README.md`](apps/china-store/README.md) for the full
+See [`apps/shizhi/README.md`](apps/shizhi/README.md) for the full
 feature list, environment variables, and deployment notes.
 
 ## Scripts
@@ -69,8 +69,8 @@ Alipay, COS and SES are never contacted.
 Build and run with Docker:
 
 ```bash
-docker build -t china-store .
-docker run -p 3000:3000 --env-file apps/china-store/.env china-store
+docker build -t shizhi .
+docker run -p 3000:3000 --env-file apps/shizhi/.env shizhi
 ```
 
 Tencent CloudBase CloudRun:

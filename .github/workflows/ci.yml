@@ -23,8 +23,8 @@ jobs:
 
       - run: bun run --filter @repo/catalog test
 
-      - run: bun run --filter china-store test
+      - run: bun run --filter shizhi test
 
-      - run: bun run --filter china-store typecheck
+      - run: bun run --filter shizhi typecheck
 
-      - run: bun run --filter china-store build
+      - run: bun run --filter shizhi build

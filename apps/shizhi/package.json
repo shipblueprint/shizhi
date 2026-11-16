@@ -1,9 +1,9 @@
 {
-  "name": "china-store",
+  "name": "shizhi",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "China-hosted Example Store storefront: Alipay, CNY prices, private delivery.",
+  "description": "China-hosted Shizhi storefront: Alipay, CNY prices, private delivery.",
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "preview": "tsx src/preview.ts",

@@ -1,19 +1,19 @@
 {
-  "name": "china-store",
+  "name": "shizhi",
   "version": "1.0.0",
-  "description": "China-hosted Example Store storefront: Alipay, WeChat Pay, CNY prices, private delivery.",
+  "description": "China-hosted Shizhi storefront: Alipay, WeChat Pay, CNY prices, private delivery.",
   "private": true,
   "workspaces": ["apps/*", "packages/*"],
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "bun run --filter china-store dev",
-    "preview": "bun run --filter china-store preview",
-    "build": "bun run --filter china-store build",
-    "test": "bun run --filter china-store test",
-    "typecheck": "bun run --filter china-store typecheck",
-    "db:migrate": "bun run --filter china-store db:migrate",
-    "deploy": "tcb cloudrun deploy -s china-store --source . --port 3000 --force --yes --wait"
+    "dev": "bun run --filter shizhi dev",
+    "preview": "bun run --filter shizhi preview",
+    "build": "bun run --filter shizhi build",
+    "test": "bun run --filter shizhi test",
+    "typecheck": "bun run --filter shizhi typecheck",
+    "db:migrate": "bun run --filter shizhi db:migrate",
+    "deploy": "tcb cloudrun deploy -s shizhi --source . --port 3000 --force --yes --wait"
   },
   "trustedDependencies": ["esbuild"],
   "devDependencies": {

@@ -42,12 +42,12 @@ const server = serve(
     hostname: "0.0.0.0",
   },
   (info) => {
-    console.log(`china-store listening on ${info.address}:${info.port}`);
+    console.log(`shizhi listening on ${info.address}:${info.port}`);
   }
 );
 
 async function shutdown(signal: string): Promise<void> {
-  console.log(`china-store shutting down after ${signal}`);
+  console.log(`shizhi shutting down after ${signal}`);
   server.close(() => {
     void pool.end().then(() => process.exit(0));
   });

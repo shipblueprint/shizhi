@@ -1,15 +1,15 @@
-# 中国店（China Store）
+# 拾知 中国店（Shizhi）
 
 中文 | [English](README.md)
 
-面向中国大陆的「示例商店」数字商品店铺。人民币标价，支持支付宝，可选微信支付；
+面向中国大陆的「拾知」数字商品店铺。人民币标价，支持支付宝，可选微信支付；
 文件私有存放在腾讯云 COS，通过腾讯云 SES 发送邮件；服务端使用 Hono 渲染 HTML，
 数据存于 PostgreSQL，部署到腾讯云 CloudBase CloudRun。
 
 本仓库是从原 monorepo 中裁剪出来的独立仓库，只保留中国店需要的部分：
 
 ```
-apps/china-store/    Hono 应用、支付、存储、数据库迁移、测试
+apps/shizhi/    Hono 应用、支付、存储、数据库迁移、测试
 packages/catalog/    与框架无关的商品目录，供各店铺共用
 ```
 
@@ -23,16 +23,16 @@ packages/catalog/    与框架无关的商品目录，供各店铺共用
 
 ```bash
 bun install
-cp apps/china-store/.env.example apps/china-store/.env
+cp apps/shizhi/.env.example apps/shizhi/.env
 # 填入 PostgreSQL、支付宝、COS 和 SES 的配置
 
-set -a; . apps/china-store/.env; set +a
-bun run --filter china-store db:migrate
+set -a; . apps/shizhi/.env; set +a
+bun run --filter shizhi db:migrate
 bun run dev
 ```
 
 完整的功能列表、环境变量和部署说明见
-[`apps/china-store/README.md`](apps/china-store/README.md)。
+[`apps/shizhi/README.md`](apps/shizhi/README.md)。
 
 ## 常用命令
 
@@ -66,8 +66,8 @@ bun run preview
 用 Docker 构建并运行：
 
 ```bash
-docker build -t china-store .
-docker run -p 3000:3000 --env-file apps/china-store/.env china-store
+docker build -t shizhi .
+docker run -p 3000:3000 --env-file apps/shizhi/.env shizhi
 ```
 
 部署到腾讯云 CloudBase CloudRun：

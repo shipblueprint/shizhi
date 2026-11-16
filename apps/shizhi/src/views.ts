@@ -20,7 +20,7 @@ export function escapeHtml(value: string): string {
 const CURRENT_YEAR = new Date().getFullYear();
 
 const FAVICON = `data:image/svg+xml,${encodeURIComponent(
-  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#6d28d9"/><text x="32" y="42" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#fff">EX</text></svg>'
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#6d28d9"/><text x="32" y="42" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#fff">SZ</text></svg>'
 )}`;
 
 const FAMILY_ORDER: CatalogSku["family"][] = ["course", "book", "template"];
@@ -996,7 +996,7 @@ type LayoutInput = {
 };
 
 function layout({ title, description, body }: LayoutInput): string {
-  const pageTitle = `${title} · 示例商店`;
+  const pageTitle = `${title} · 拾知`;
   return `<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -1008,7 +1008,7 @@ function layout({ title, description, body }: LayoutInput): string {
 <meta property="og:type" content="website">
 <meta property="og:title" content="${escapeHtml(pageTitle)}">
 <meta property="og:description" content="${escapeHtml(description)}">
-<meta property="og:site_name" content="示例商店">
+<meta property="og:site_name" content="拾知">
 <meta name="twitter:card" content="summary">
 <title>${escapeHtml(pageTitle)}</title>
 <link rel="icon" href="${FAVICON}">
@@ -1018,9 +1018,9 @@ function layout({ title, description, body }: LayoutInput): string {
 <a class="skip" href="#main">跳到主要内容</a>
 <header class="site-header">
   <div class="shell header-inner">
-    <a class="brand" href="/" aria-label="示例商店首页">
+    <a class="brand" href="/" aria-label="拾知首页">
       <span class="brand-mark" aria-hidden="true">SB</span>
-      <span class="brand-copy"><strong>Example Store</strong><span>中国店</span></span>
+      <span class="brand-copy"><strong>拾知</strong><span>中国店</span></span>
     </a>
     <nav class="site-nav" aria-label="主导航">
       <a href="/courses">课程</a>
@@ -1038,9 +1038,9 @@ ${body}
   <div class="shell">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="/" aria-label="示例商店首页">
+        <a class="brand" href="/" aria-label="拾知首页">
           <span class="brand-mark" aria-hidden="true">SB</span>
-          <span class="brand-copy"><strong>Example Store</strong><span>中国店</span></span>
+          <span class="brand-copy"><strong>拾知</strong><span>中国店</span></span>
         </a>
         <p>面向中文创作者的实战课程、电子书与模板。人民币标价，数字文件通过境内私有存储交付。</p>
         <p class="footer-note">中国大陆 · 人民币结算</p>
@@ -1078,7 +1078,7 @@ ${body}
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© ${CURRENT_YEAR} 示例商店。保留所有权利。</p>
+      <p>© ${CURRENT_YEAR} 拾知。保留所有权利。</p>
       <p>数字商品 · 邮箱交付 · 支付宝结算</p>
     </div>
   </div>
@@ -1106,7 +1106,7 @@ function cover(item: ChinaCatalogItem): string {
   return `<div class="cover cover-${item.sku.family}">
   <span class="cover-kicker">${escapeHtml(formatLabel(item.format))}</span>
   <span class="cover-glyph" aria-hidden="true">${escapeHtml(glyph)}</span>
-  <span class="cover-brand">EXAMPLE STORE</span>
+  <span class="cover-brand">SHIZHI</span>
 </div>`;
 }
 
@@ -1278,7 +1278,7 @@ function hero(items: ChinaCatalogItem[]): string {
   return `<section class="shell hero">
   <div class="hero-grid">
     <div>
-      <span class="badge"><span class="badge-dot" aria-hidden="true"></span>EXAMPLE STORE · 中国店</span>
+      <span class="badge"><span class="badge-dot" aria-hidden="true"></span>SHIZHI · 中国店</span>
       <h1>把 AI 做出来，<span class="accent">真正交付出去。</span></h1>
       <p class="hero-lede">面向中文创作者的实战课程、电子书与模板。先从免费资源开始，需要时再购买完整版本。人民币标价，支付宝付款，下载链接发送到结账邮箱。</p>
       <div class="hero-actions">
@@ -1444,7 +1444,7 @@ export function renderHome(items: ChinaCatalogItem[]): string {
   return layout({
     title: "首页",
     description:
-      "示例商店：面向中文创作者的实战课程、电子书与模板。人民币标价，支付宝付款，邮箱交付下载链接。",
+      "拾知：面向中文创作者的实战课程、电子书与模板。人民币标价，支付宝付款，邮箱交付下载链接。",
     body: `${hero(items)}
 ${homeFamilySection(items)}
 ${deliverySection()}
@@ -1458,7 +1458,7 @@ export function renderStore(items: ChinaCatalogItem[]): string {
   return layout({
     title: "商品目录",
     description:
-      "按课程、电子书和模板浏览 示例商店。人民币标价，支付宝付款，数字文件通过邮箱交付。",
+      "按课程、电子书和模板浏览 拾知。人民币标价，支付宝付款，数字文件通过邮箱交付。",
     body: `<section class="shell">
   <div class="hero" style="padding-bottom:0">
     <span class="badge"><span class="badge-dot" aria-hidden="true"></span>全部商品</span>
@@ -1486,7 +1486,7 @@ export function renderFamily(
   const offerCount = getChinaOfferCards(familyItems).length;
   return layout({
     title: label,
-    description: `${label}：${FAMILY_INTROS[family]} 示例商店，人民币标价，支付宝付款，邮箱交付。`,
+    description: `${label}：${FAMILY_INTROS[family]} 拾知，人民币标价，支付宝付款，邮箱交付。`,
     body: `<section class="shell">
   <div class="hero" style="padding-bottom:0">
     <span class="badge"><span class="badge-dot" aria-hidden="true"></span>${escapeHtml(label)}</span>
@@ -1683,7 +1683,7 @@ export function renderWechatPay({
 export function renderReceipt(state: ReceiptState, orderId: string): string {
   return layout({
     title: "订单状态",
-    description: "查询 示例商店订单状态和数字商品交付信息。",
+    description: "查询 拾知订单状态和数字商品交付信息。",
     body: `<div class="shell receipt">
   <p class="eyebrow">${escapeHtml(state.eyebrow)}</p>
   <div class="receipt-card">
@@ -1705,7 +1705,7 @@ export function renderReceipt(state: ReceiptState, orderId: string): string {
 export function renderNotFound(message = "页面不存在。"): string {
   return layout({
     title: "未找到",
-    description: "你访问的页面不存在。返回 示例商店继续浏览商品。",
+    description: "你访问的页面不存在。返回 拾知继续浏览商品。",
     body: `<div class="shell not-found">
   <p class="eyebrow">404</p>
   <h1>这个页面不在了。</h1>
@@ -1765,7 +1765,7 @@ export function renderLegal(kind: keyof typeof LEGAL): string {
   const page = LEGAL[kind];
   return layout({
     title: page.title,
-    description: `示例商店${page.title}。人民币数字商品购买、交付、退款与隐私说明。`,
+    description: `拾知${page.title}。人民币数字商品购买、交付、退款与隐私说明。`,
     body: `<div class="shell legal-wrap">
   <nav class="breadcrumb" aria-label="面包屑">
     <a href="/">首页</a><span aria-hidden="true">/</span><span>${escapeHtml(page.title)}</span>
@@ -1773,7 +1773,7 @@ export function renderLegal(kind: keyof typeof LEGAL): string {
   <article class="legal-card">
     <p class="eyebrow">法律信息</p>
     <h1>${escapeHtml(page.title)}</h1>
-    <p class="legal-meta"><span>最后更新：2026 年 11 月</span><span>适用站点：示例商店</span></p>
+    <p class="legal-meta"><span>最后更新：2026 年 11 月</span><span>适用站点：拾知</span></p>
     ${page.body}
   </article>
 </div>`,
