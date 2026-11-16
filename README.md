@@ -1,5 +1,7 @@
 # China Store
 
+[中文](README.zh.md) | English
+
 Mainland-China storefront for Example Store digital products. Alipay and
 optional WeChat Pay in CNY, private Tencent COS delivery, Tencent Cloud SES
 email. Hono server-rendered HTML on PostgreSQL, deployed to Tencent CloudBase
