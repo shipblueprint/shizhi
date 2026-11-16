@@ -11,21 +11,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          version: 12
+          bun-version: 1.4.2
 
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: pnpm
 
-      - run: pnpm install --frozen-lockfile
+      - run: bun install --frozen-lockfile
 
-      - run: pnpm --filter @repo/catalog test
+      - run: bun run --filter @repo/catalog test
 
-      - run: pnpm --filter china-store test
+      - run: bun run --filter china-store test
 
-      - run: pnpm --filter china-store typecheck
+      - run: bun run --filter china-store typecheck
 
-      - run: pnpm --filter china-store build
+      - run: bun run --filter china-store build

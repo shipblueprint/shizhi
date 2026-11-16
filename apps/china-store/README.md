@@ -25,15 +25,15 @@ from `@repo/catalog` and does not import Cloudflare Worker code.
 cp apps/china-store/.env.example apps/china-store/.env
 # fill in PostgreSQL, Alipay, COS and SES values
 set -a; . apps/china-store/.env; set +a
-pnpm --filter china-store db:migrate
-pnpm --filter china-store dev
+bun run --filter china-store db:migrate
+bun run --filter china-store dev
 ```
 
 Run the tests without live providers:
 
 ```bash
-pnpm --filter china-store test
-pnpm --filter china-store typecheck
+bun run --filter china-store test
+bun run --filter china-store typecheck
 ```
 
 ## Database
@@ -46,7 +46,7 @@ browser receives the token in the email link.
 
 ## Deployment
 
-The app is a Node 20+ Hono server. It listens on `PORT` and is intended for a
+The app is a Hono server. It listens on `PORT` and is intended for a
 Tencent CloudBase CloudRun container or an equivalent Tencent serverless
 container runtime.
 
@@ -64,7 +64,7 @@ container runtime.
 8. Build and deploy:
 
 ```bash
-pnpm --filter china-store build
+bun run --filter china-store build
 docker build -f apps/china-store/Dockerfile -t china-store .
 ```
 
@@ -76,7 +76,7 @@ Run this manually before pointing the store at production credentials.
 
 1. Set `APP_URL` to the sandbox host, fill Alipay sandbox app id, seller id,
    keys and `ALIPAY_GATEWAY_URL`.
-2. Run `pnpm --filter china-store db:migrate` and start the app.
+2. Run `bun run --filter china-store db:migrate` and start the app.
 3. Open `/store`, choose `book-guide-ebook-cny`, and submit a valid email.
 4. Pay in the Alipay sandbox. Confirm the return to `/thanks?order=...` shows
    the pending or paid receipt.

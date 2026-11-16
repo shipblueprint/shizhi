@@ -15,20 +15,20 @@ packages/catalog/    Framework-neutral product catalog shared by the storefronts
 
 ## Requirements
 
-- Node 22+
-- pnpm 12
+- Bun 1.4+
+- Node 22+ (Vitest runs on Node)
 - A PostgreSQL database (TencentDB for PostgreSQL in production)
 
 ## Quick start
 
 ```bash
-pnpm install
+bun install
 cp apps/china-store/.env.example apps/china-store/.env
 # fill in PostgreSQL, Alipay, COS and SES values
 
 set -a; . apps/china-store/.env; set +a
-pnpm --filter china-store db:migrate
-pnpm dev
+bun run --filter china-store db:migrate
+bun dev
 ```
 
 See [`apps/china-store/README.md`](apps/china-store/README.md) for the full
@@ -38,12 +38,12 @@ feature list, environment variables, and deployment notes.
 
 | Command | Description |
 | --- | --- |
-| `pnpm dev` | Run the storefront with `tsx watch` |
-| `pnpm build` | Bundle with `tsup` |
-| `pnpm test` | Vitest |
-| `pnpm typecheck` | `tsc --noEmit` |
-| `pnpm db:migrate` | Apply SQL migrations |
-| `pnpm deploy` | Deploy to Tencent CloudBase CloudRun |
+| `bun dev` | Run the storefront with `tsx watch` |
+| `bun build` | Bundle with `tsup` |
+| `bun test` | Vitest |
+| `bun typecheck` | `tsc --noEmit` |
+| `bun db:migrate` | Apply SQL migrations |
+| `bun deploy` | Deploy to Tencent CloudBase CloudRun |
 
 ## Deploy
 
@@ -57,7 +57,7 @@ docker run -p 3000:3000 --env-file apps/china-store/.env china-store
 Tencent CloudBase CloudRun:
 
 ```bash
-pnpm deploy
+bun deploy
 ```
 
 ## License
