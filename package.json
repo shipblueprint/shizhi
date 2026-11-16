@@ -1,0 +1,21 @@
+{
+  "name": "china-store",
+  "version": "1.0.0",
+  "description": "China-hosted Example Store storefront: Alipay, WeChat Pay, CNY prices, private delivery.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "pnpm@12.10.1",
+  "scripts": {
+    "dev": "pnpm --filter china-store run dev",
+    "build": "pnpm --filter china-store run build",
+    "test": "pnpm --filter china-store run test",
+    "typecheck": "pnpm --filter china-store run typecheck",
+    "db:migrate": "pnpm --filter china-store run db:migrate",
+    "deploy": "tcb cloudrun deploy -s china-store --source . --port 3000 --force --yes --wait"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.7",
+    "typescript": "^5.9.3"
+  }
+}

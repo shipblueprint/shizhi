@@ -1,0 +1,21 @@
+{
+  "name": "@repo/catalog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Framework-neutral product catalog shared by every storefront.",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "china-store",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "China-hosted Example Store storefront: Alipay, CNY prices, private delivery.",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "db:migrate": "tsx src/migrate.ts"
+  },
+  "dependencies": {
+    "@repo/catalog": "workspace:^",
+    "cos-nodejs-sdk-v5": "^3.0.0",
+    "hono": "^4.11.4",
+    "pg": "^8.23.1",
+    "qrcode": "^1.5.4",
+    "tencentcloud-sdk-nodejs-ses": "^4.1.271"
+  },
+  "devDependencies": {
+    "@hono/node-server": "^2.1.6",
+    "@types/node": "^22.19.7",
+    "@types/pg": "^8.15.6",
+    "@types/qrcode": "^1.5.6",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}
